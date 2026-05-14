@@ -62,7 +62,7 @@ export async function getCurrentUser(workspaceId?: string): Promise<User> {
 }
 
 export async function updateUserProfile(metadata: Record<string, unknown>): Promise<void> {
-  const url = '/api/user/update';
+  const url = 'api/user/update';
 
   return executeAPIVoidRequest(() =>
     getAxios()?.post<APIResponse>(url, {
