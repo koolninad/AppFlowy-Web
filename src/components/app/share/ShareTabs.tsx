@@ -46,7 +46,7 @@ function ShareTabs({
         icon: view?.is_published ? <SuccessIcon className={'mb-0 h-5 w-5 text-text-action'} /> : undefined,
         Panel: PublishPanel,
       },
-      currentUser?.email?.endsWith('appflowy.io') &&
+      currentUser?.email?.endsWith('amrutworkspace.com') &&
         view?.is_published && {
           value: TabKey.TEMPLATE,
           label: t('template.asTemplate'),

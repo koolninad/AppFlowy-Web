@@ -1,4 +1,4 @@
-import type { PublishedPageSnapshot } from '@/application/publish-snapshot/types';
+import { YDoc } from '@/application/types';
 import { useOutlineDrawer } from '@/components/_shared/outline/outline.hooks';
 import { AFScroller } from '@/components/_shared/scroller';
 import { PublishViewHeader } from '@/components/publish/header';
@@ -8,11 +8,11 @@ import SideBar from '@/components/publish/SideBar';
 function PublishLayout({
   isTemplateThumb,
   isTemplate,
-  snapshot,
+  doc,
 }: {
   isTemplateThumb: boolean;
   isTemplate: boolean;
-  snapshot?: PublishedPageSnapshot;
+  doc?: YDoc;
 }) {
   const { drawerOpened, drawerWidth, setDrawerWidth, toggleOpenDrawer } = useOutlineDrawer();
 
@@ -68,7 +68,7 @@ function PublishLayout({
           />
         )}
 
-        <PublishMain snapshot={snapshot} isTemplate={isTemplate} />
+        <PublishMain doc={doc} isTemplate={isTemplate} />
       </AFScroller>
       {drawerOpened && (
         <SideBar

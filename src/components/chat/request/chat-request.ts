@@ -71,8 +71,8 @@ export type UpdateChatSettingsParams = Partial<ChatSettings>;
  * - Rate limiting: Follows AppFlowy's API guidelines
  * - Error handling: Standardized error responses
  *
- * @see {@link https://github.com/AppFlowy-IO/AppFlowy|AppFlowy GitHub}
- * @see {@link https://docs.appflowy.io/docs/guides/appflowy-cloud|AppFlowy Cloud Documentation}
+ * @see {@link https://github.com/Chandorkar-Technologies/AppFlowy|AppFlowy GitHub}
+ * @see {@link https://docs.amrutworkspace.com/docs/guides/appflowy-cloud|Amrut Workspace Documentation}
  */
 export class ChatRequest {
   private axiosInstance: AxiosInstance = createInitialInstance();

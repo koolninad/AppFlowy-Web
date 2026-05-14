@@ -68,7 +68,7 @@ export async function signInWithUrl(url: string) {
     localStorage.removeItem('token');
   }
 
-  Log.info('[Auth] signInWithUrl: verifying token with AppFlowy Cloud');
+  Log.info('[Auth] signInWithUrl: verifying token with Amrut Workspace');
   try {
     await verifyToken(accessToken);
   } catch (e) {
@@ -102,12 +102,18 @@ export async function verifyToken(accessToken: string) {
 }
 
 export async function getServerInfo(): Promise<ServerInfo> {
-  const url = '/api/server-info';
+  const url = '/api/server';
 
   try {
-    return await executeAPIRequest<ServerInfo>(() =>
-      getAxios()?.get<APIResponse<ServerInfo>>(url)
+    // The OSS build exposes /api/server (not /api/server-info) and returns
+    // { supported_client_features, minimum_supported_client_version, appflowy_web_url }
+    // instead of { enable_page_history, ai_enabled }, so we ignore the response
+    // body and return sensible defaults.
+    await executeAPIRequest(() =>
+      getAxios()?.get<APIResponse>(url)
     );
+
+    return { enable_page_history: true, ai_enabled: true };
   } catch (error) {
     console.warn('Server info API returned error:', (error as APIError)?.message);
     return { enable_page_history: true, ai_enabled: true };

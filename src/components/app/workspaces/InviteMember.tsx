@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
-import { getProAccessPlanFromSubscriptions, isAppFlowyHosted } from '@/utils/subscription';
+import { getProAccessPlanFromSubscriptions, isAmrutHosted } from '@/utils/subscription';
 
 function InviteMember({
   workspace,
@@ -51,7 +51,7 @@ function InviteMember({
   const [activeSubscriptionPlan, setActiveSubscriptionPaln] = React.useState<SubscriptionPlan | null>(null);
 
   const loadSubscription = useCallback(async () => {
-    if (!isAppFlowyHosted()) {
+    if (!isAmrutHosted()) {
       setActiveSubscriptionPaln(SubscriptionPlan.Pro);
       return;
     }

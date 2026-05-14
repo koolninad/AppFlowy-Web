@@ -157,7 +157,7 @@ export async function turnIntoMember(workspaceId: string, email: string) {
 }
 
 export async function getShareWithMe(workspaceId: string): Promise<View> {
-  const url = `/api/sharing/workspace/${workspaceId}/view/${workspaceId}?depth=50`;
+  const url = `/api/sharing/workspace/${workspaceId}/view/${workspaceId}?depth=10`;
 
   return executeAPIRequest<View>(() =>
     getAxios()?.get<APIResponse<View>>(url)

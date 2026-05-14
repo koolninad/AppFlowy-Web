@@ -24,10 +24,6 @@ function AsTemplateButton ({ viewId }: { viewId: string }) {
 
   if (!currentUser) return null;
 
-  const isAppFlowyUser = currentUser.email?.endsWith('@appflowy.io');
-
-  if (!isAppFlowyUser) return null;
-
   if (!view?.is_published) return null;
   return (
     <>

@@ -62,7 +62,7 @@ export default function Help() {
             <Button
               component={'a'}
               target='_blank'
-              href={'https://www.appflowy.com/what-is-new'}
+              href={'https://www.amrutworkspace.com/what-is-new'}
               className={'justify-start'}
               color={'inherit'}
               startIcon={<WhatsNewIcon />}
@@ -72,7 +72,7 @@ export default function Help() {
             </Button>
             <Button
               component={'a'}
-              href={'https://appflowy.com/guide/getting-started-with-appflowy'}
+              href={'https://amrutworkspace.com/guide/getting-started'}
               className={'justify-start'}
               target='_blank'
               color={'inherit'}
@@ -113,7 +113,7 @@ export default function Help() {
             <Button
               component={'a'}
               target='_blank'
-              href={'https://github.com/AppFlowy-IO/AppFlowy-Web/issues/new/choose'}
+              href={'https://github.com/Chandorkar-Technologies/AmrutWorkspace-Web/issues/new/choose'}
               className={'justify-start'}
               color={'inherit'}
               startIcon={<FeedbackIcon />}
@@ -127,7 +127,7 @@ export default function Help() {
               size={'small'}
               target='_blank'
               component={'a'}
-              href={'https://forum.appflowy.io/'}
+              href={'https://community.amrutworkspace.com/'}
               className={'justify-start text-text-secondary'}
               color={'inherit'}
               variant={'text'}
@@ -138,23 +138,23 @@ export default function Help() {
               size={'small'}
               component={'a'}
               target='_blank'
-              href={'https://x.com/appflowy'}
+              href={'https://x.com/amrutworkspace'}
               className={'justify-start text-text-secondary'}
               color={'inherit'}
               variant={'text'}
             >
-              Twitter - @appflowy
+              Twitter - @amrutworkspace
             </Button>
             <Button
               size={'small'}
               component={'a'}
               target='_blank'
-              href={'https://www.reddit.com/r/AppFlowy/'}
+              href={'https://www.reddit.com/r/AmrutWorkspace/'}
               className={'justify-start text-text-secondary'}
               color={'inherit'}
               variant={'text'}
             >
-              Reddit - r/appflowy
+              Reddit - r/AmrutWorkspace
             </Button>
           </div>
         </Popover>

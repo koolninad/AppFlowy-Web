@@ -19,7 +19,7 @@ import { NotInvitationAccount } from '@/components/_shared/landing-page/NotInvit
 import { NormalModal } from '@/components/_shared/modal';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
-import { hasProAccessFromPlans, isAppFlowyHosted } from '@/utils/subscription';
+import { hasProAccessFromPlans, isAmrutHosted } from '@/utils/subscription';
 
 function ApproveRequestPage() {
   const [searchParams] = useSearchParams();
@@ -50,7 +50,7 @@ function ApproveRequestPage() {
       const plans = await BillingService.getActiveSubscription(requestInfo.workspace.id);
 
       setCurrentPlans(plans);
-      if (plans.length === 0 && isAppFlowyHosted()) {
+      if (plans.length === 0 && isAmrutHosted()) {
         setUpgradeModalOpen(true);
       }
       // eslint-disable-next-line
@@ -80,7 +80,7 @@ function ApproveRequestPage() {
       // eslint-disable-next-line
     } catch (e: any) {
       if (e.code === ERROR_CODE.FREE_PLAN_GUEST_LIMIT_EXCEEDED || e.code === ERROR_CODE.PAID_PLAN_GUEST_LIMIT_EXCEEDED) {
-        if (isAppFlowyHosted()) {
+        if (isAmrutHosted()) {
           setUpgradeModalOpen(true);
         }
 
@@ -108,7 +108,7 @@ function ApproveRequestPage() {
     }
 
     // This should not be called on self-hosted instances, but adding check as safety
-    if (!isAppFlowyHosted()) {
+    if (!isAmrutHosted()) {
       // Self-hosted instances have Pro features enabled by default
       return;
     }
@@ -251,10 +251,10 @@ function ApproveRequestPage() {
               components={{
                 email: (
                   <span
-                    onClick={() => window.open(`mailto:support@appflowy.io`, '_blank')}
+                    onClick={() => window.open(`mailto:support@amrutworkspace.com`, '_blank')}
                     className={'cursor-pointer text-text-action underline'}
                   >
-                    support@appflowy.io
+                    support@amrutworkspace.com
                   </span>
                 ),
               }}

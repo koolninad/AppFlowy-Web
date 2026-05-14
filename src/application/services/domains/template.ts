@@ -13,4 +13,5 @@ export {
   updateTemplateCreator as updateCreator,
   deleteTemplateCreator as deleteCreator,
   uploadTemplateAvatar as uploadAvatar,
+  getTemplateHomepage as getHomepage,
 } from '../js-services/http/template-api';

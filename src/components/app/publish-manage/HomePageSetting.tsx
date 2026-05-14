@@ -9,7 +9,7 @@ import { ReactComponent as SearchIcon } from '@/assets/icons/search.svg';
 import { ReactComponent as UpgradeIcon } from '@/assets/icons/upgrade.svg';
 import { Popover } from '@/components/_shared/popover';
 import PageIcon from '@/components/_shared/view-icon/PageIcon';
-import { isAppFlowyHosted } from '@/utils/subscription';
+import { isAmrutHosted } from '@/utils/subscription';
 
 interface HomePageSettingProps {
   onRemoveHomePage: () => Promise<void>;
@@ -57,7 +57,7 @@ function HomePageSetting({
 
   if (activePlan && activePlan !== SubscriptionPlan.Pro) {
     // Only show upgrade button on official hosts (self-hosted instances have Pro features enabled by default)
-    if (!isAppFlowyHosted()) {
+    if (!isAmrutHosted()) {
       return null;
     }
 

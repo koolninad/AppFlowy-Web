@@ -4,12 +4,14 @@ import { AFCloudConfig } from '@/application/services/services.type';
 import { User } from '@/application/types';
 import { getConfigValue } from '@/utils/runtime-config';
 
-const baseURL = getConfigValue('APPFLOWY_BASE_URL', 'https://test.appflowy.cloud');
-const gotrueURL = getConfigValue('APPFLOWY_GOTRUE_BASE_URL', 'https://test.appflowy.cloud/gotrue');
+// Use window.__APP_CONFIG__ (Docker entrypoint) or empty string (Vite dev).
+// The fallback '' ensures all requests go through Vite's proxy in dev mode.
+const rawBaseURL = (typeof window !== 'undefined' && window.__APP_CONFIG__?.APPFLOWY_BASE_URL) || '';
+const rawGotrueURL = (typeof window !== 'undefined' && window.__APP_CONFIG__?.APPFLOWY_GOTRUE_BASE_URL) || '/gotrue';
 
 export const defaultConfig: AFCloudConfig = {
-  baseURL,
-  gotrueURL,
+  baseURL: rawBaseURL,
+  gotrueURL: rawGotrueURL,
   wsURL: '', // Legacy field - not used, keeping for backward compatibility
 };
 

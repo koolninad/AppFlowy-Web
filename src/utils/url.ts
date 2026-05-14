@@ -2,21 +2,21 @@ import isFQDN from 'validator/lib/isFQDN';
 import isIP from 'validator/lib/isIP';
 import isURL from 'validator/lib/isURL';
 
-export const downloadPage = 'https://appflowy.com/download';
+export const downloadPage = 'https://amrutworkspace.com/download';
 
-export const openAppFlowySchema = 'appflowy-flutter://';
+export const openAmrutSchema = 'amrutworkspace://';
 
-export const iosDownloadLink = 'https://apps.apple.com/app/appflowy/id6457261352';
-export const androidDownloadLink = 'https://play.google.com/store/apps/details?id=io.appflowy.appflowy';
+export const iosDownloadLink = 'https://apps.apple.com/app/amrut-workspace';
+export const androidDownloadLink = 'https://play.google.com/store/apps/details?id=com.chandorkar.amrutworkspace';
 
-export const desktopDownloadLink = 'https://appflowy.com/download/#pop';
+export const desktopDownloadLink = 'https://amrutworkspace.com/download/#pop';
 
 export function isValidUrl(input: string) {
   return isURL(input, { require_protocol: true, require_host: false });
 }
 
 // Process the URL to make sure it's a valid URL
-// If it's not a valid URL(eg: 'appflowy.io' or '192.168.1.2'), we'll add 'https://' to the URL
+// If it's not a valid URL(eg: 'amrutworkspace.com' or '192.168.1.2'), we'll add 'https://' to the URL
 export function processUrl(input: string) {
   let processedUrl = input;
 

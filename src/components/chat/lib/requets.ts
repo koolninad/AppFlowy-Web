@@ -5,7 +5,7 @@ import axios, { InternalAxiosRequestConfig } from 'axios';
  */
 export function createInitialInstance() {
   return axios.create({
-    baseURL: 'https://beta.appflowy.cloud',
+    baseURL: 'http://localhost',
     headers: {
       'Content-Type': 'application/json',
     },

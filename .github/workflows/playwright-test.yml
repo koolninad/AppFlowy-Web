@@ -110,16 +110,16 @@ jobs:
         with:
           version: ${{ env.PNPM_VERSION }}
 
-      - name: Checkout AppFlowy-Cloud-Premium
+      - name: Checkout Amrut Workspace-Cloud-Premium
         uses: actions/checkout@v4
         with:
-          repository: AppFlowy-IO/AppFlowy-Cloud-Premium
+          repository: Amrut Workspace-IO/Amrut Workspace-Cloud-Premium
           ref: main
           token: ${{ secrets.CI_TOKEN }}
-          path: AppFlowy-Cloud-Premium
+          path: Amrut Workspace-Cloud-Premium
 
-      - name: Setup AppFlowy Cloud
-        working-directory: AppFlowy-Cloud-Premium
+      - name: Setup Amrut Workspace Cloud
+        working-directory: Amrut Workspace-Cloud-Premium
         env:
           OPENAI_KEY: ${{ secrets.CI_OPENAI_API_KEY }}
         run: |
@@ -146,7 +146,7 @@ jobs:
           APPFLOWY_WORKER_VERSION: ${{ env.CLOUD_VERSION }}
         run: |
           # Start Docker pull in background
-          (cd AppFlowy-Cloud-Premium && docker compose pull appflowy_cloud gotrue ai appflowy_worker) &
+          (cd Amrut Workspace-Cloud-Premium && docker compose pull amrutworkspace_cloud gotrue ai amrutworkspace_worker) &
           DOCKER_PID=$!
 
           # Get pnpm store path and install deps concurrently
@@ -180,12 +180,12 @@ jobs:
           path: dist/
 
       - name: Start Docker services
-        working-directory: AppFlowy-Cloud-Premium
+        working-directory: Amrut Workspace-Cloud-Premium
         env:
           APPFLOWY_CLOUD_VERSION: ${{ env.CLOUD_VERSION }}
           APPFLOWY_AI_VERSION: ${{ env.CLOUD_VERSION }}
           APPFLOWY_WORKER_VERSION: ${{ env.CLOUD_VERSION }}
-          RUST_LOG: appflowy_cloud=info
+          RUST_LOG: amrutworkspace_cloud=info
         run: |
           docker compose -f docker-compose-web-ci.yml up -d
 
@@ -296,4 +296,4 @@ jobs:
           fi
           pkill -f "bun deploy/server.ts" 2>/dev/null || true
 
-          cd AppFlowy-Cloud-Premium && docker compose down || true
+          cd Amrut Workspace-Cloud-Premium && docker compose down || true

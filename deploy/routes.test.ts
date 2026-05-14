@@ -28,7 +28,7 @@ jest.mock('./html', () => ({
 const testDistDir = '/test/dist';
 jest.mock('./config', () => ({
   distDir: testDistDir,
-  defaultSite: 'https://appflowy.com',
+  defaultSite: 'https://amrutworkspace.com',
 }));
 
 const mockReadFileSync = jest.fn();
@@ -207,11 +207,11 @@ describe('routes - static file handling', () => {
       expect(response!.headers.get('Content-Type')).toBe('image/png');
     });
 
-    it('serves known static files like /appflowy.ico', async () => {
+    it('serves known static files like /amrutworkspace.ico', async () => {
       const fileContent = Buffer.from('ICO data');
       mockReadFileSync.mockReturnValue(fileContent);
 
-      const context = createContext('/appflowy.ico');
+      const context = createContext('/amrutworkspace.ico');
 
       let response: Response | undefined;
       for (const route of routes) {
@@ -224,11 +224,11 @@ describe('routes - static file handling', () => {
       expect(response!.headers.get('Content-Type')).toBe('image/x-icon');
     });
 
-    it('serves /appflowy.svg with correct MIME type', async () => {
+    it('serves /amrutworkspace.svg with correct MIME type', async () => {
       const fileContent = Buffer.from('<svg></svg>');
       mockReadFileSync.mockReturnValue(fileContent);
 
-      const context = createContext('/appflowy.svg');
+      const context = createContext('/amrutworkspace.svg');
 
       let response: Response | undefined;
       for (const route of routes) {

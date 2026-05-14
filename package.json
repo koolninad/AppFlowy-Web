@@ -1,5 +1,5 @@
 {
-  "name": "appflowy_web_app",
+  "name": "amrutworkspace_web_app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -249,6 +249,7 @@
     "jest-node-exports-resolver": "^1.1.6",
     "pino": "^9.2.0",
     "pino-pretty": "^11.2.1",
+    "playwright": "^1.59.1",
     "postcss": "^8.5.10",
     "prettier": "2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.2",

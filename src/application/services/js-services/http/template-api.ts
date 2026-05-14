@@ -4,6 +4,7 @@ import {
   TemplateCategoryFormValues,
   TemplateCreator,
   TemplateCreatorFormValues,
+  TemplateHomePage,
   TemplateSummary,
   UploadTemplatePayload,
 } from '@/application/template.type';
@@ -137,4 +138,12 @@ export async function uploadTemplateAvatar(file: File) {
   );
 
   return getAxios()?.defaults.baseURL + '/api/template-center/avatar/' + data.file_id;
+}
+
+export async function getTemplateHomepage() {
+  const url = '/api/template-center/homepage';
+
+  return executeAPIRequest<TemplateHomePage>(() =>
+    getAxios()?.get<APIResponse<TemplateHomePage>>(url)
+  );
 }

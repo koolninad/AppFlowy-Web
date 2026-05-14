@@ -270,7 +270,7 @@ function RecordNotFound({
             Submit an issue on our{' '}
             <a
               className={'text-text-action  underline'}
-              href={'https://github.com/AppFlowy-IO/AppFlowy/issues/new?template=bug_report.yaml'}
+              href={'https://github.com/Chandorkar-Technologies/AmrutWorkspace-Web/issues/new?template=bug_report.yaml'}
             >
               Github
             </a>{' '}
@@ -279,7 +279,7 @@ function RecordNotFound({
         </>
       )}
 
-      <img src={emptyImageSrc} alt={'AppFlowy'} />
+      <img src={emptyImageSrc} alt={'Amrut Workspace'} />
     </div>
   );
 }

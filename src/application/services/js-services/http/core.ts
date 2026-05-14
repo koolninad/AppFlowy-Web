@@ -294,6 +294,7 @@ export async function withRetry<T>(
 
 export function initAPIService(config: AFCloudConfig) {
   if (axiosInstance) {
+    axiosInstance.defaults.baseURL = config.baseURL;
     return;
   }
 

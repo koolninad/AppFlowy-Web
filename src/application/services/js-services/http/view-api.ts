@@ -3,23 +3,63 @@ import { View } from '@/application/types';
 
 import { APIResponse, executeAPIRequest, getAxios } from './core';
 
-export async function getAppOutline(workspaceId: string): Promise<AppOutlineResponse> {
-  const url = `/api/workspace/${workspaceId}/view/${workspaceId}?depth=2`;
-
-  return executeAPIRequest<View>(() =>
-    getAxios()?.get<APIResponse<View>>(url)
-  ).then((data) => ({
-    outline: Array.isArray(data.children) ? data.children : [],
-    folderRid: data.folder_rid,
-  }));
+interface PageCollabResponse {
+  view: View;
 }
 
-export async function getView(workspaceId: string, viewId: string, depth: number = 1) {
-  const url = `/api/workspace/${workspaceId}/view/${viewId}?depth=${depth}`;
+interface FolderViewResponse {
+  view_id: string;
+  name: string;
+  icon: View['icon'] | null;
+  is_space: boolean;
+  is_private: boolean;
+  is_published: boolean;
+  is_favorite: boolean;
+  layout: number;
+  created_at: string;
+  last_edited_time: string;
+  extra: View['extra'];
+  access_level?: number;
+  workspace_id?: string;
+  children: FolderViewResponse[];
+}
 
-  return executeAPIRequest<View>(() =>
-    getAxios()?.get<APIResponse<View>>(url)
+function folderViewToView(fv: FolderViewResponse): View {
+  return {
+    view_id: fv.view_id,
+    name: fv.name,
+    icon: fv.icon,
+    layout: fv.layout as View['layout'],
+    extra: fv.extra,
+    children: (fv.children || []).map(folderViewToView),
+    is_published: fv.is_published,
+    is_private: fv.is_private,
+    last_edited_time: fv.last_edited_time,
+    created_at: fv.created_at,
+    access_level: fv.access_level as View['access_level'],
+    workspace_id: fv.workspace_id,
+  };
+}
+
+export async function getAppOutline(workspaceId: string): Promise<AppOutlineResponse> {
+  const url = `/api/workspace/${workspaceId}/folder?depth=10&root_view_id=${workspaceId}`;
+
+  const root = await executeAPIRequest<FolderViewResponse>(() =>
+    getAxios()?.get<APIResponse<FolderViewResponse>>(url)
   );
+
+  return {
+    outline: (root.children || []).map(folderViewToView),
+    folderRid: root.view_id,
+  };
+}
+
+export async function getView(workspaceId: string, viewId: string, _depth: number = 1) {
+  const url = `/api/workspace/${workspaceId}/page-view/${viewId}`;
+
+  return executeAPIRequest<PageCollabResponse>(() =>
+    getAxios()?.get<APIResponse<PageCollabResponse>>(url)
+  ).then((data) => data.view);
 }
 
 export async function getViews(workspaceId: string, viewIds: string[], depth: number = 2) {

@@ -213,7 +213,7 @@ export function Workspaces() {
                     <span
                       onClick={(e) => {
                         e.stopPropagation();
-                        void openUrl('https://docs.appflowy.io/docs/guides/import-from-notion', '_blank');
+                        void openUrl('https://docs.amrutworkspace.com/docs/guides/import-from-notion', '_blank');
                       }}
                       className={'ml-auto cursor-pointer text-icon-secondary'}
                     >

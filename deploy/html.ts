@@ -6,9 +6,9 @@ import { indexPath } from './config';
 import { logger } from './logger';
 import { type PublishErrorPayload } from './publish-error';
 
-const DEFAULT_DESCRIPTION = 'Write, share, and publish docs quickly on AppFlowy.\nGet started for free.';
+const DEFAULT_DESCRIPTION = 'Write, share, and publish docs quickly on Amrut Workspace.\nGet started for free.';
 const DEFAULT_IMAGE = '/og-image.png';
-const DEFAULT_FAVICON = '/appflowy.ico';
+const DEFAULT_FAVICON = '/amrutworkspace.ico';
 
 const MARKETING_META: Record<
   string,
@@ -18,12 +18,12 @@ const MARKETING_META: Record<
   }
 > = {
   '/after-payment': {
-    title: 'Payment Success | AppFlowy',
-    description: 'Payment success on AppFlowy',
+    title: 'Payment Success | Amrut Workspace',
+    description: 'Payment success on Amrut Workspace',
   },
   '/login': {
-    title: 'Login | AppFlowy',
-    description: 'Login to AppFlowy',
+    title: 'Login | Amrut Workspace',
+    description: 'Login to Amrut Workspace',
   },
 };
 
@@ -66,7 +66,7 @@ export const renderPublishPage = ({ hostname, pathname, metaData, publishError }
   const $ = load(htmlData);
 
   const description = DEFAULT_DESCRIPTION;
-  let title = 'AppFlowy';
+  let title = 'Amrut Workspace';
   const url = `https://${hostname ?? ''}${pathname}`;
   let image = DEFAULT_IMAGE;
   let favicon = DEFAULT_FAVICON;
@@ -101,7 +101,7 @@ export const renderPublishPage = ({ hostname, pathname, metaData, publishError }
         titleList.push('|');
       }
 
-      titleList.push('AppFlowy');
+      titleList.push('Amrut Workspace');
       title = titleList.join(' ');
 
       try {
@@ -130,13 +130,13 @@ export const renderPublishPage = ({ hostname, pathname, metaData, publishError }
   setOrUpdateMetaTag($, 'meta[property="og:description"]', 'property', description);
   setOrUpdateMetaTag($, 'meta[property="og:image"]', 'property', image);
   setOrUpdateMetaTag($, 'meta[property="og:url"]', 'property', url);
-  setOrUpdateMetaTag($, 'meta[property="og:site_name"]', 'property', 'AppFlowy');
+  setOrUpdateMetaTag($, 'meta[property="og:site_name"]', 'property', 'Amrut Workspace');
   setOrUpdateMetaTag($, 'meta[property="og:type"]', 'property', 'website');
   setOrUpdateMetaTag($, 'meta[name="twitter:card"]', 'name', 'summary_large_image');
   setOrUpdateMetaTag($, 'meta[name="twitter:title"]', 'name', title);
   setOrUpdateMetaTag($, 'meta[name="twitter:description"]', 'name', description);
   setOrUpdateMetaTag($, 'meta[name="twitter:image"]', 'name', image);
-  setOrUpdateMetaTag($, 'meta[name="twitter:site"]', 'name', '@appflowy');
+  setOrUpdateMetaTag($, 'meta[name="twitter:site"]', 'name', '@amrutworkspace');
 
   if (publishError) {
     appendPublishErrorScript($, publishError);
@@ -151,7 +151,7 @@ const appendPublishErrorScript = ($: CheerioAPI, error: PublishErrorPayload) => 
     .replace(/>/g, '\\u003e');
 
   $('head').append(
-    `<script id="appflowy-publish-error">window.__APPFLOWY_PUBLISH_ERROR__ = ${serialized};</script>`
+    `<script id="amrutworkspace-publish-error">window.__APPFLOWY_PUBLISH_ERROR__ = ${serialized};</script>`
   );
 };
 

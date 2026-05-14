@@ -81,3 +81,37 @@ export interface Template extends TemplateSummary {
   about: string;
   related_templates: TemplateSummary[];
 }
+
+export interface PublishInfo {
+  view_id: string;
+  publish_name: string;
+  namespace: string;
+  is_published: boolean;
+}
+
+export interface TemplateMinimal {
+  view_id: string;
+  name: string;
+  description: string;
+  view_url: string;
+  categories: TemplateCategory[];
+  creator: TemplateCreator;
+  is_new_template: boolean;
+  is_featured: boolean;
+}
+
+export interface TemplateMinimalWithPublishInfo {
+  template: TemplateMinimal;
+  publish_info: PublishInfo;
+}
+
+export interface TemplateGroupWithPublishInfo {
+  category: TemplateCategory;
+  templates: TemplateMinimalWithPublishInfo[];
+}
+
+export interface TemplateHomePage {
+  featured_templates: TemplateMinimalWithPublishInfo[];
+  new_templates: TemplateMinimalWithPublishInfo[];
+  template_groups: TemplateGroupWithPublishInfo[];
+}

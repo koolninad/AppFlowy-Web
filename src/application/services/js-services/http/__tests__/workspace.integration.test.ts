@@ -24,7 +24,7 @@ describe('HTTP API - Workspace Operations', () => {
             wsURL: envConfig.wsURL,
         });
 
-        const testEmail = `test-${uuidv4()}@appflowy.io`;
+        const testEmail = `test-${uuidv4()}@amrutworkspace.com`;
 
         try {
             const authResult = await authHelper.signInUser(testEmail);

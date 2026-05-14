@@ -59,10 +59,10 @@ export function ErrorPage({ onRetry, error }: ErrorPageProps) {
             )}
             {t('landingPage.error.contact', 'contact ')}
             <span
-              onClick={() => window.open('mailto:support@appflowy.io', '_blank')}
+              onClick={() => window.open('mailto:support@amrutworkspace.com', '_blank')}
               className='cursor-pointer text-text-action hover:underline'
             >
-              support@appflowy.io
+              support@amrutworkspace.com
             </span>
             .
           </div>

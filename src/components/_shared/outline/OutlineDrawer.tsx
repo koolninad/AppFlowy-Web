@@ -4,13 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { UIVariant } from '@/application/types';
-import { ReactComponent as AppFlowyLogo } from '@/assets/icons/appflowy.svg';
+import { ReactComponent as AmrutLogo } from '@/assets/icons/appflowy.svg';
 import { ReactComponent as DoubleArrowLeft } from '@/assets/icons/double_arrow_left.svg';
 import Resizer from '@/components/_shared/outline/Resizer';
 import { AFScroller } from '@/components/_shared/scroller';
 import { createHotKeyLabel, HOT_KEY_NAME } from '@/utils/hotkeys';
 
-import AppFlowyPower from '../appflowy-power/AppFlowyPower';
+import AmrutPowered from '../appflowy-power/AppFlowyPower';
 
 export function OutlineDrawer({
   onScroll,
@@ -91,7 +91,7 @@ export function OutlineDrawer({
                 navigate('/app');
               }}
             >
-              <AppFlowyLogo className='h-full w-full' />
+              <AmrutLogo className='h-full w-full' />
             </div>
           )}
           <div className={'flex shrink-0 items-center pr-3'}>
@@ -122,7 +122,7 @@ export function OutlineDrawer({
           </div>
         </div>
         <div className={'flex h-fit flex-1 flex-col'}>{children}</div>
-        {variant === 'publish' && <AppFlowyPower width={width} />}
+        {variant === 'publish' && <AmrutPowered width={width} />}
       </AFScroller>
       <Resizer drawerWidth={width} onResize={onResizeWidth} />
     </Drawer>

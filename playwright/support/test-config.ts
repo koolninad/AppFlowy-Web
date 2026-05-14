@@ -67,7 +67,7 @@ export const getTestEnvironment = () => ({
 /**
  * Shared email generator for e2e specs.
  */
-export const generateRandomEmail = (domain = 'appflowy.io') => `${uuidv4()}@${domain}`;
+export const generateRandomEmail = (domain = 'amrutworkspace.com') => `${uuidv4()}@${domain}`;
 
 /**
  * Known harmless page errors that should be suppressed in E2E tests.

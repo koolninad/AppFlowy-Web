@@ -33,7 +33,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Progress } from '@/components/ui/progress';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
-import { isAppFlowyHosted } from '@/utils/subscription';
+import { isAmrutHosted } from '@/utils/subscription';
 
 import { EmailTag, InviteInput } from './InviteInput';
 import { PersonSuggestionItem } from './PersonSuggestionItem';
@@ -393,7 +393,7 @@ export function InviteGuest({
       return;
     }
 
-    if (!isAppFlowyHosted()) {
+    if (!isAmrutHosted()) {
       // Self-hosted instances have Pro features enabled by default
       return;
     }

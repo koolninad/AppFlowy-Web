@@ -2,12 +2,12 @@ import { HTMLAttributes, ReactNode, useCallback, useEffect, useMemo } from 'reac
 import { useTranslation } from 'react-i18next';
 
 import { Workspace } from '@/application/types';
-import { ReactComponent as AppFlowyLogo } from '@/assets/icons/appflowy.svg';
+import { ReactComponent as AmrutLogo } from '@/assets/icons/appflowy.svg';
 import LandingFooter from '@/components/_shared/landing-page/LandingFooter';
 import { useCurrentUserOptional, useIsAuthenticatedOptional } from '@/components/main/app.hooks';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { openAppFlowySchema } from '@/utils/url';
+import { openAmrutSchema } from '@/utils/url';
 
 export default function LandingPage({
   Logo,
@@ -47,12 +47,12 @@ export default function LandingPage({
     if (workspace) {
       window.open(`/app/${workspace.id}`, '_blank');
       window.open(
-        `appflowy-flutter://invitation-callback?workspace_id=${workspace.id}&email=${currentUser?.email}`,
+        `amrutworkspace://invitation-callback?workspace_id=${workspace.id}&email=${currentUser?.email}`,
         '_self'
       );
     } else {
       window.open('/app', '_blank');
-      window.open(openAppFlowySchema, '_self');
+      window.open(openAmrutSchema, '_self');
     }
   }, [currentUser?.email, workspace]);
 
@@ -65,7 +65,7 @@ export default function LandingPage({
           }}
           className='h-full w-[141px] cursor-pointer'
         >
-          <AppFlowyLogo className='h-full w-full' />
+          <AmrutLogo className='h-full w-full' />
         </span>
       </div>
       <div className='flex w-full flex-1  items-center justify-center'>

@@ -41,7 +41,7 @@ const NotFound = () => {
               </div>
             )}
             <div className='w-full text-center'>
-              {t('publish.createWithAppFlowy')}
+              {t('publish.createWithAmrutWorkspace')}
               <div className={'flex w-full items-center justify-center gap-1'}>
                 <div className={'font-semibold text-text-action'}>{t('publish.fastWithAI')}</div>
                 <div>{t('publish.tryItNow')}</div>
@@ -50,7 +50,7 @@ const NotFound = () => {
           </>
         }
         primaryAction={{
-          onClick: () => window.open('https://appflowy.com/download', '_self'),
+          onClick: () => window.open('https://amrutworkspace.com/download', '_self'),
           label: t('publish.downloadApp'),
         }}
         secondaryAction={{

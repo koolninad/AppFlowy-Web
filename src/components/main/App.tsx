@@ -12,6 +12,7 @@ import { Toaster } from '../ui/sonner';
 const LoginPage = lazy(() => import('@/pages/LoginPage'));
 const AppRouter = lazy(() => import('@/components/app/AppRouter'));
 const AsTemplatePage = lazy(() => import('@/pages/AsTemplatePage'));
+const TemplatesPage = lazy(() => import('@/pages/TemplatesPage'));
 const AcceptInvitationPage = lazy(() => import('@/pages/AcceptInvitationPage'));
 const AfterPaymentPage = lazy(() => import('@/pages/AfterPaymentPage'));
 const ImportPage = lazy(() => import('@/pages/ImportPage'));
@@ -47,6 +48,14 @@ const AppMain = withAppWrapper(() => {
       <Route
         path="/as-template"
         element={<Suspense><AsTemplatePage /></Suspense>}
+      />
+      <Route
+        path="/templates"
+        element={<Suspense><TemplatesPage /></Suspense>}
+      />
+      <Route
+        path="/templates/:category/:viewId"
+        element={<Suspense><TemplatesPage /></Suspense>}
       />
       <Route
         path="/accept-invitation"

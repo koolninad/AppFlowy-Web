@@ -1,8 +1,8 @@
 import { Divider } from '@mui/material';
 
-import { ReactComponent as AppFlowyLogo } from '@/assets/icons/appflowy.svg';
+import { ReactComponent as AmrutLogo } from '@/assets/icons/appflowy.svg';
 
-function AppFlowyPower({ divider, width }: { divider?: boolean; width?: number }) {
+function AmrutPowered({ divider, width }: { divider?: boolean; width?: number }) {
   return (
     <div
       style={{
@@ -16,7 +16,7 @@ function AppFlowyPower({ divider, width }: { divider?: boolean; width?: number }
 
       <div
         onClick={() => {
-          window.open('https://appflowy.com', '_blank');
+          window.open('https://amrutworkspace.com', '_blank');
         }}
         style={{
           width,
@@ -26,10 +26,10 @@ function AppFlowyPower({ divider, width }: { divider?: boolean; width?: number }
         }
       >
         Powered by
-        <AppFlowyLogo className={'w-[88px]'} />
+        <AmrutLogo className={'w-[88px]'} />
       </div>
     </div>
   );
 }
 
-export default AppFlowyPower;
+export default AmrutPowered;

@@ -1,4 +1,4 @@
-import { androidDownloadLink, desktopDownloadLink, openAppFlowySchema } from '@/utils/url';
+import { androidDownloadLink, desktopDownloadLink, openAmrutSchema } from '@/utils/url';
 
 type OS = 'ios' | 'android' | 'other';
 
@@ -104,7 +104,7 @@ export const openAppOrDownload = (config: AppConfig): void => {
 export function openOnly (schema?: string) {
 
   return openAppOrDownload({
-    appScheme: schema || openAppFlowySchema,
+    appScheme: schema || openAmrutSchema,
   });
 }
 
@@ -112,10 +112,10 @@ export function openOrDownload (schema?: string) {
   const os = getOS();
 
   if (os === 'ios' || os === 'android') {
-    const universalLink = 'https://appflowy.com/download';
-    const intentUrl = `intent://appflowy.com/download#Intent;` +
+    const universalLink = 'https://amrutworkspace.com/download';
+    const intentUrl = `intent://amrutworkspace.com/download#Intent;` +
       'scheme=https;' +
-      'package=io.appflowy.app;' +
+      'package=com.chandorkar.amrutworkspace;' +
       `S.browser_fallback_url=${encodeURIComponent(androidDownloadLink)};` +
       'end';
 
@@ -124,7 +124,7 @@ export function openOrDownload (schema?: string) {
   }
 
   return openAppOrDownload({
-    appScheme: schema || openAppFlowySchema,
+    appScheme: schema || openAmrutSchema,
     downloadUrl: desktopDownloadLink,
   });
 }

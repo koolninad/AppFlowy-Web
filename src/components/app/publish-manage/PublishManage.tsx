@@ -14,7 +14,7 @@ import PublishPagesSkeleton from '@/components/app/publish-manage/PublishPagesSk
 import UpdateNamespace from '@/components/app/publish-manage/UpdateNamespace';
 import { PublishService } from '@/application/services/domains';
 import { useCurrentUser } from '@/components/main/app.hooks';
-import { getProAccessPlanFromSubscriptions, isAppFlowyHosted } from '@/utils/subscription';
+import { getProAccessPlanFromSubscriptions, isAmrutHosted } from '@/utils/subscription';
 import { openUrl } from '@/utils/url';
 
 export function PublishManage({ onClose }: { onClose?: () => void }) {
@@ -177,7 +177,7 @@ export function PublishManage({ onClose }: { onClose?: () => void }) {
 
   const [activeSubscription, setActiveSubscription] = React.useState<SubscriptionPlan | null>(null);
   const loadSubscription = useCallback(async () => {
-    if (!isAppFlowyHosted()) {
+    if (!isAmrutHosted()) {
       setActiveSubscription(SubscriptionPlan.Pro);
       return;
     }
@@ -263,7 +263,7 @@ export function PublishManage({ onClose }: { onClose?: () => void }) {
             title={
               !isOwner
                 ? t('settings.sites.error.onlyWorkspaceOwnerCanUpdateNamespace')
-                : isAppFlowyHosted() && (activeSubscription === null || activeSubscription === SubscriptionPlan.Free)
+                : isAmrutHosted() && (activeSubscription === null || activeSubscription === SubscriptionPlan.Free)
                   ? t('settings.sites.error.onlyProCanUpdateNamespace')
                   : undefined
             }
@@ -273,7 +273,7 @@ export function PublishManage({ onClose }: { onClose?: () => void }) {
               data-testid="edit-namespace-button"
               onClick={(e) => {
                 // Block if not owner, or if on official host with Free/unloaded subscription
-                if (!isOwner || (isAppFlowyHosted() && (activeSubscription === null || activeSubscription === SubscriptionPlan.Free))) {
+                if (!isOwner || (isAmrutHosted() && (activeSubscription === null || activeSubscription === SubscriptionPlan.Free))) {
                   return;
                 }
 

@@ -27,7 +27,7 @@ describe('HTTP API - Auth & User Operations', () => {
         });
 
         // Generate a unique test email
-        const testEmail = `test-${uuidv4()}@appflowy.io`;
+        const testEmail = `test-${uuidv4()}@amrutworkspace.com`;
 
         try {
             // Sign in the test user

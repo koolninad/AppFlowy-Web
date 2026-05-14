@@ -14,6 +14,7 @@ let axiosInstance: AxiosInstance | null = null;
 
 export function initGrantService(baseURL: string) {
   if (axiosInstance) {
+    axiosInstance.defaults.baseURL = baseURL;
     return;
   }
 
@@ -73,7 +74,7 @@ export async function signInWithPassword(params: { email: string; password: stri
     const data = response?.data;
 
     if (data) {
-      Log.info('[Auth] signInWithPassword: GoTrue returned tokens, verifying with AppFlowy Cloud');
+      Log.info('[Auth] signInWithPassword: GoTrue returned tokens, verifying with Amrut Workspace');
       try {
         await verifyToken(data.access_token);
         saveGoTrueAuth(JSON.stringify(data));
@@ -183,7 +184,7 @@ export async function signUpWithPassword(params: { email: string; password: stri
         });
       }
 
-      Log.info('[Auth] signUpWithPassword: verifying token with AppFlowy Cloud');
+      Log.info('[Auth] signUpWithPassword: verifying token with Amrut Workspace');
       try {
         await verifyToken(data.access_token as string);
       } catch (error: unknown) {
@@ -354,10 +355,10 @@ export async function signInOTP({
         Log.info('[Auth] signInOTP: GoTrue returned tokens, saving to localStorage');
         saveGoTrueAuth(JSON.stringify(data));
 
-        // Verify token with AppFlowy Cloud to create user if needed
+        // Verify token with Amrut Workspace to create user if needed
         let isNewUser = false;
 
-        Log.info('[Auth] signInOTP: verifying token with AppFlowy Cloud');
+        Log.info('[Auth] signInOTP: verifying token with Amrut Workspace');
         try {
           const result = await verifyToken(data.access_token);
 
