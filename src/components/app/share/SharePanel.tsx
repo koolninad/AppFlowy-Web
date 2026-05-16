@@ -53,7 +53,7 @@ function SharePanel({ viewId }: { viewId: string }) {
       const detail = await AccessService.getShareDetail(currentWorkspaceId, viewId, ancestorViewIds, signal);
 
       if (signal?.aborted || requestSeq !== loadPeopleRequestSeq.current) return;
-      setPeople(detail.shared_with);
+      setPeople(detail.shared_with || []);
     } catch (error) {
       if (signal?.aborted || requestSeq !== loadPeopleRequestSeq.current) return;
       console.error(error);
